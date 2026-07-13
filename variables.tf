@@ -34,9 +34,9 @@ EOT
     vm_priority                   = string
     vm_size                       = string
     description                   = optional(string)
-    local_auth_enabled            = optional(bool) # Default: true
-    node_public_ip_enabled        = optional(bool) # Default: true
-    ssh_public_access_enabled     = optional(bool) # Default: false
+    local_auth_enabled            = optional(bool)
+    node_public_ip_enabled        = optional(bool)
+    ssh_public_access_enabled     = optional(bool)
     subnet_resource_id            = optional(string)
     tags                          = optional(map(string))
     scale_settings = object({
