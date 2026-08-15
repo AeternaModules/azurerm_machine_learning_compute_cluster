@@ -8,7 +8,7 @@ output "machine_learning_compute_clusters_description" {
 }
 output "machine_learning_compute_clusters_identity" {
   description = "Map of identity values across all machine_learning_compute_clusters, keyed the same as var.machine_learning_compute_clusters"
-  value       = { for k, v in azurerm_machine_learning_compute_cluster.machine_learning_compute_clusters : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_machine_learning_compute_cluster.machine_learning_compute_clusters : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "machine_learning_compute_clusters_local_auth_enabled" {
   description = "Map of local_auth_enabled values across all machine_learning_compute_clusters, keyed the same as var.machine_learning_compute_clusters"
@@ -32,11 +32,11 @@ output "machine_learning_compute_clusters_node_public_ip_enabled" {
 }
 output "machine_learning_compute_clusters_scale_settings" {
   description = "Map of scale_settings values across all machine_learning_compute_clusters, keyed the same as var.machine_learning_compute_clusters"
-  value       = { for k, v in azurerm_machine_learning_compute_cluster.machine_learning_compute_clusters : k => v.scale_settings if v.scale_settings != null && length(v.scale_settings) > 0 }
+  value       = { for k, v in azurerm_machine_learning_compute_cluster.machine_learning_compute_clusters : k => one(v.scale_settings) if v.scale_settings != null && length(v.scale_settings) > 0 }
 }
 output "machine_learning_compute_clusters_ssh" {
   description = "Map of ssh values across all machine_learning_compute_clusters, keyed the same as var.machine_learning_compute_clusters"
-  value       = { for k, v in azurerm_machine_learning_compute_cluster.machine_learning_compute_clusters : k => v.ssh if v.ssh != null && length(v.ssh) > 0 }
+  value       = { for k, v in azurerm_machine_learning_compute_cluster.machine_learning_compute_clusters : k => one(v.ssh) if v.ssh != null && length(v.ssh) > 0 }
   sensitive   = true
 }
 output "machine_learning_compute_clusters_ssh_public_access_enabled" {
